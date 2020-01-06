@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    count: 1,
+    count: 0,
     tags: []
   };
   styles = {
@@ -26,7 +26,8 @@ class Counter extends Component {
   }
 
   handleIncrement = () => {
-    console.log("Increment Clicked", this); //without constructor it logs as undefined, Arrow function overcomes it.
+    this.setState({ count: this.state.count + 1 });
+    // console.log("Increment Clicked", this); //without constructor it logs as undefined, Arrow function overcomes it.
   };
   render() {
     return (
