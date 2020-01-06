@@ -10,6 +10,10 @@ class Counter extends Component {
     fontWeight: "bold"
   };
 
+  // constructor() {
+  //   super();
+  //   this.handleIncrement = this.handleIncrement.bind(this);
+  // }
   renderTags() {
     if (this.state.tags.length === 0) return <p>There are no tags!</p>;
     return (
@@ -21,9 +25,9 @@ class Counter extends Component {
     );
   }
 
-  handleIncrement() {
-    console.log("Increment Clicked");
-  }
+  handleIncrement = () => {
+    console.log("Increment Clicked", this); //without constructor it logs as undefined, Arrow function overcomes it.
+  };
   render() {
     return (
       <React.Fragment>
