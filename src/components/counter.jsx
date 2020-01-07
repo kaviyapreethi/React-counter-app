@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Counter extends Component {
   state = {
     value: this.props.counter.value,
-    product: 0,
+    // product: 0,
     tags: [1, 2, 3, 4]
   };
   styles = {
@@ -26,11 +26,11 @@ class Counter extends Component {
     );
   }
 
-  handleIncrement = product => {
-    console.log(product);
-    this.setState({ value: this.state.value + 1 });
-    // console.log("Increment Clicked", this); //without constructor it logs as undefined, Arrow function overcomes it. On clicking increment only the span gets updated(Virtual Dom). This didn't affect the other Dom elements
-  };
+  // handleIncrement = product => {
+  //   console.log(product);
+  //   this.setState({ value: this.state.value + 1 });
+  //   // console.log("Increment Clicked", this); //without constructor it logs as undefined, Arrow function overcomes it. On clicking increment only the span gets updated(Virtual Dom). This didn't affect the other Dom elements
+  // };
 
   render() {
     return (
@@ -41,7 +41,7 @@ class Counter extends Component {
         </span>
 
         <button
-          onClick={() => this.handleIncrement({ product: this.state.product })}
+          onClick={() => this.props.onIncrement(this.props.counter)}
           style={{ fontStyle: "italic" }}
           className="btn btn-secondary btn-sm"
         >
@@ -60,12 +60,12 @@ class Counter extends Component {
   }
   getBadgeClasses() {
     let classes = "badge m-2 badge-";
-    classes += this.state.value === 0 ? "warning" : "primary";
+    classes += this.props.counter.value === 0 ? "warning" : "primary";
     return classes;
   }
 
   formatCount() {
-    const { value } = this.state;
+    const { value } = this.props.counter;
     return value === 0 ? "Zero" : value;
   }
 }
