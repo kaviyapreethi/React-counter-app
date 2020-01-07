@@ -4,7 +4,7 @@ class Counter extends Component {
   state = {
     value: this.props.value,
     product: 0,
-    tags: []
+    tags: [1, 2, 3, 4]
   };
   styles = {
     fontSize: 10,
@@ -36,6 +36,7 @@ class Counter extends Component {
     console.log("props", this.props);
     return (
       <div>
+        {this.props.children}
         <span style={this.styles} className={this.getBadgeClasses()}>
           {this.formatCount()}
         </span>
@@ -48,7 +49,6 @@ class Counter extends Component {
           Increment
         </button>
         {this.state.tags.length === 0 && " Please create a new tag!"}
-        {this.renderTags()}
       </div>
     );
     //render is a tree with 3 element (react element on the top (div) and 2 childrens (span and button))
