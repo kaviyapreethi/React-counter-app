@@ -15,6 +15,19 @@ class Counter extends Component {
   //   super();
   //   this.handleIncrement = this.handleIncrement.bind(this);
   // }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log("PrevProps", prevProps);
+    console.log("PrevState", prevState);
+    if (prevProps.counter.value !== this.props.counter.value) {
+      //Ajax call and get new data from the server
+    }
+  }
+
+  componentWillUnmount() {
+    console.log("Counter - Unmount");
+  }
+
   renderTags() {
     if (this.state.tags.length === 0) return <p>There are no tags!</p>;
     return (
